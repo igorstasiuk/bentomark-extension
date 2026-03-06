@@ -145,7 +145,7 @@ const checkMove = (evt: any) => {
           <button 
             @click="closeGroup" 
             class="p-3 rounded-xl shadow-sm glass:backdrop-blur-md glass:border transition-all"
-            :class="isBackHovered ? 'bg-indigo-500 text-white glass:bg-indigo-500 glass:border-indigo-400 scale-110' : 'bg-white/50 dark:bg-black/50 glass:bg-white/30 glass:dark:bg-black/40 glass:border-white/30 glass:dark:border-white/10 hover:bg-white dark:hover:bg-black glass:hover:bg-white/50 glass:dark:hover:bg-black/50 text-gray-700 dark:text-gray-200'"
+            :class="isBackHovered ? 'bg-violet-500 text-white glass:bg-violet-500 glass:border-violet-400 scale-110' : 'bg-white/50 dark:bg-black/50 glass:bg-white/70 glass:dark:bg-black/40 glass:border-white/30 glass:dark:border-white/10 hover:bg-white dark:hover:bg-black glass:hover:bg-white/90 glass:dark:hover:bg-black/50 text-gray-700 dark:text-gray-200'"
             title="Drop bookmark here to move to main screen"
           >
             <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>

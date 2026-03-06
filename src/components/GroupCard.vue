@@ -55,14 +55,14 @@ onUnmounted(() => {
   <div 
     class="group relative flex flex-col justify-end p-4 h-48 rounded-3xl shadow-md backdrop-blur-md hover:shadow-xl transition-all cursor-pointer overflow-hidden border bg-contain bg-center bg-no-repeat glass:backdrop-blur-xl glass:shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] glass:dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]" 
     :class="[
-      !imageUrl ? 'bg-white/80 dark:bg-gray-800/80 glass:bg-white/30 glass:dark:bg-black/40' : '',
-      isDragOver ? 'border-indigo-500 scale-105 ring-4 ring-indigo-500/50' : 'border-white/40 dark:border-gray-700/40 glass:border-white/40 glass:dark:border-white/10'
+      !imageUrl ? 'bg-white/80 dark:bg-gray-800/80 glass:bg-white/70 glass:dark:bg-black/40' : '',
+      isDragOver ? 'border-violet-500 scale-105 ring-4 ring-violet-500/50' : 'border-white/40 dark:border-gray-700/40 glass:border-white/40 glass:dark:border-white/10'
     ]" 
     :style="imageUrl ? { backgroundImage: `url(${imageUrl})`, backgroundColor: '#0f172a' } : {}"
   >
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
     <!-- Placeholder Cover Image if no image -->
-    <div v-if="!imageUrl" class="absolute inset-0 bg-indigo-500/20 z-0 group-hover:scale-105 transition-transform duration-500"></div>
+    <div v-if="!imageUrl" class="absolute inset-0 bg-violet-500/20 z-0 group-hover:scale-105 transition-transform duration-500"></div>
 
     <!-- Nested Draggable acts as a Dropzone for SortableJS -->
     <draggable
@@ -82,7 +82,7 @@ onUnmounted(() => {
     </draggable>
 
     <div class="absolute top-4 right-4 flex gap-2 z-40 opacity-0 group-hover:opacity-100 transition-opacity">
-      <button @click.stop="$emit('edit', group.id)" class="p-1.5 rounded-full text-white/50 hover:text-blue-400 bg-black/30">
+      <button @click.stop="$emit('edit', group.id)" class="p-1.5 rounded-full text-white/50 hover:text-violet-400 bg-black/30">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
       </button>
       <button @click.stop="store.deleteItem(group.id)" class="p-1.5 rounded-full text-white/50 hover:text-red-400 bg-black/30">

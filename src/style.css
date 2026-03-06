@@ -2,6 +2,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant glass (&:where(.glass, .glass *));
 
+@theme {
+  --color-bento-lime: #C4F000;
+  --color-bento-lime-hover: #a3cc00;
+}
+
 :root {
   --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

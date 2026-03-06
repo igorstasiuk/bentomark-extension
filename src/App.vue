@@ -97,7 +97,7 @@ const handleDragOver = (event: DragEvent) => {
     <!-- Abstract Background or Custom Image -->
     <div 
       class="absolute inset-0 z-0 opacity-80 pointer-events-none transition-all duration-700 bg-cover bg-center"
-      :class="{ 'bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-indigo-950 dark:via-gray-900 dark:to-purple-900': !backgroundUrl }"
+      :class="{ 'bg-gradient-to-br from-violet-100 via-white to-fuchsia-100 dark:from-violet-950 dark:via-slate-900 dark:to-fuchsia-900': !backgroundUrl }"
       :style="backgroundUrl ? { backgroundImage: `url(${backgroundUrl})` } : {}"
     ></div>
 

@@ -39,7 +39,7 @@ onUnmounted(() => {
     :href="bookmark.url" 
     target="_blank" 
     class="flex flex-col p-4 h-48 rounded-3xl shadow-sm hover:shadow-lg transition-all border border-white/50 dark:border-gray-700/50 glass:border-white/40 glass:dark:border-white/10 group relative overflow-hidden bg-contain bg-center bg-no-repeat glass:backdrop-blur-xl glass:shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] glass:dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]" 
-    :class="{ 'bg-white/90 dark:bg-gray-800/90 glass:bg-white/30 glass:dark:bg-black/40': !imageUrl }" 
+    :class="{ 'bg-white/90 dark:bg-gray-800/90 glass:bg-white/70 glass:dark:bg-black/40': !imageUrl }" 
     :style="imageUrl ? { backgroundImage: `url(${imageUrl})`, backgroundColor: '#0f172a' } : {}"
   >
     <div v-if="imageUrl" class="absolute inset-0 bg-black/40 z-0 group-hover:bg-black/50 transition-colors"></div>
@@ -48,7 +48,7 @@ onUnmounted(() => {
         <img :src="`https://www.google.com/s2/favicons?domain=${bookmark.url}&sz=64`" :alt="bookmark.title" class="w-6 h-6" />
       </div>
       <div class="flex gap-2">
-        <button @click.prevent="$emit('edit', bookmark.id)" class="text-gray-400 hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity z-10 bg-white/80 dark:bg-gray-800/80 p-1.5 rounded-full" :class="{ 'text-white/80 hover:text-blue-400 bg-black/30': imageUrl }">
+        <button @click.prevent="$emit('edit', bookmark.id)" class="text-gray-400 hover:text-violet-500 opacity-0 group-hover:opacity-100 transition-opacity z-10 bg-white/80 dark:bg-gray-800/80 p-1.5 rounded-full" :class="{ 'text-white/80 hover:text-violet-400 bg-black/30': imageUrl }">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
         </button>
         <button @click.prevent="store.deleteItem(bookmark.id)" class="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity z-10 bg-white/80 dark:bg-gray-800/80 p-1.5 rounded-full" :class="{ 'text-white/80 hover:text-red-400 bg-black/30': imageUrl }">

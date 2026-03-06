@@ -92,7 +92,7 @@ const importFromChrome = () => {
 
 <template>
   <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" @click.self="$emit('close')">
-    <div class="bg-white dark:bg-gray-800 glass:bg-white/40 glass:dark:bg-black/40 glass:backdrop-blur-2xl glass:border-white/50 glass:dark:border-white/10 glass:shadow-2xl p-6 rounded-2xl shadow-2xl w-full max-w-md border border-gray-200 dark:border-gray-700 max-h-[90vh] overflow-y-auto transition-all">
+    <div class="bg-white dark:bg-gray-800 glass:bg-white/70 glass:dark:bg-black/40 glass:backdrop-blur-2xl glass:border-white/50 glass:dark:border-white/10 glass:shadow-2xl p-6 rounded-2xl shadow-2xl w-full max-w-md border border-gray-200 dark:border-gray-700 max-h-[90vh] overflow-y-auto transition-all">
       <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Settings</h2>
       
       <div class="space-y-6">
@@ -121,13 +121,13 @@ const importFromChrome = () => {
 
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Background Image</label>
-          <input type="file" accept="image/*" @change="handleFileUpload" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+          <input type="file" accept="image/*" @change="handleFileUpload" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100" />
           <button @click="handleClearBackground" class="mt-2 text-xs text-red-500 hover:underline block">Clear Background</button>
         </div>
 
         <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Data Management</label>
-          <button @click="importFromChrome" class="w-full mb-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-600 text-white transition-colors text-sm font-medium">Fetch Chrome Bookmarks</button>
+          <button @click="importFromChrome" class="w-full mb-4 py-2 rounded-xl bg-violet-500 hover:bg-violet-600 text-white transition-colors text-sm font-medium">Fetch Chrome Bookmarks</button>
           
           <div class="flex gap-4">
             <button @click="exportData" class="flex-1 py-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm font-medium">Export JSON</button>
@@ -140,7 +140,7 @@ const importFromChrome = () => {
       </div>
 
       <div class="flex justify-end mt-8">
-        <button @click="$emit('close')" class="px-5 py-2 rounded-xl font-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all">Done</button>
+        <button @click="$emit('close')" class="px-5 py-2 rounded-xl font-medium bg-violet-500 hover:bg-violet-600 text-white shadow-lg shadow-violet-500/30 transition-all">Done</button>
       </div>
     </div>
   </div>
