@@ -2,7 +2,7 @@
 
 **BentoMark** is a highly visual, modern Google Chrome Extension built on Manifest V3. It completely replaces the browser's default "New Tab" page, transforming it into a beautiful, customizable bookmark manager and moodboard.
 
-![BentoMark Interface](https://via.placeholder.com/800x400.png?text=BentoMark+Extension)
+![BentoMark Interface](./public/screenshot.png)
 
 ## ✨ Features
 
