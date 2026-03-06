@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="128" height="128">
+  <defs>
+    <filter id="bento-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <rect width="120" height="120" fill="transparent" />
+
+  <g filter="url(#bento-shadow)">
+    <rect x="15" y="15" width="30" height="90" rx="15" fill="#1E293B" />
+
+    <rect x="55" y="15" width="50" height="40" rx="20" fill="#C4F000" />
+
+    <path 
+      d="M 75 65 
+         L 85 65 
+         A 20 20 0 0 1 105 85 
+         L 105 105 
+         L 80 92 
+         L 55 105 
+         L 55 85 
+         A 20 20 0 0 1 75 65 Z" 
+      fill="#8B5CF6" 
+    />
+  </g>
+</svg>

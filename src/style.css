@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant glass (&:where(.glass, .glass *));
+
+:root {
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: #f3f4f6;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Ensure interactive elements have a pointer cursor */
+button, 
+[role="button"],
+a,
+label[for],
+select,
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  cursor: pointer;
+}
+
+/* Ensure inputs keep text cursor */
+input[type="text"],
+input[type="url"],
+input[type="search"],
+textarea {
+  cursor: text;
+}
