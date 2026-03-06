@@ -15,7 +15,7 @@ export default {
   },
   onboarding: {
     welcome: 'Welcome to BentoMark',
-    description: 'Organize your bookmarks visually. Drag and drop to reorder, nest links into groups, and customize the background to make it your own.',
+    description: 'Organize your bookmarks visually with nested groups and drag & drop layout.',
     dragDrop: 'Drag & Drop',
     dragDropDesc: 'Sort your layout freely.',
     quickSearch: 'Quick Search',
@@ -31,7 +31,7 @@ export default {
     system: 'System',
     solid: 'Solid',
     liquidGlass: 'Liquid Glass',
-    columns: 'Columns: {count}',
+    columns: 'Columns',
     bgImage: 'Background Image',
     clearBg: 'Clear Background',
     dataManagement: 'Data Management',
@@ -49,9 +49,13 @@ export default {
     searchPlaceholder: 'Search bookmarks and groups...',
     dropToMain: 'Drop to main screen',
     noResults: 'No results found',
-    noResultsFor: 'No results found for "{query}"',
+    noResultsFor: 'No results found',
     emptyGroup: 'This group is empty.',
     emptyBoard: 'Your board is empty. Click + to add bookmarks.',
-    bookmarksCount: '{count} bookmarks'
+    bookmarksCount: {
+      zero: 'no bookmarks',
+      one: 'bookmark',
+      other: 'bookmarks'
+    }
   }
 }

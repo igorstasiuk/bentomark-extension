@@ -48,10 +48,10 @@ onUnmounted(() => {
         <img :src="`https://www.google.com/s2/favicons?domain=${bookmark.url}&sz=64`" :alt="bookmark.title" class="w-6 h-6" />
       </div>
       <div class="flex gap-2">
-        <button @click.prevent="$emit('edit', bookmark.id)" class="text-gray-400 hover:text-violet-500 opacity-0 group-hover:opacity-100 transition-opacity z-10 bg-white/80 dark:bg-gray-800/80 p-1.5 rounded-full" :class="{ 'text-white/80 hover:text-violet-400 bg-black/30': imageUrl }">
+        <button @click.prevent="$emit('edit', bookmark.id)" class="text-gray-500 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-400 opacity-70 group-hover:opacity-100 transition-opacity z-10 bg-white/95 dark:bg-gray-800/95 p-1.5 rounded-full shadow-sm" :class="{ 'text-white hover:text-violet-400 bg-black/50 border border-white/20': imageUrl }">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
         </button>
-        <button @click.prevent="store.deleteItem(bookmark.id)" class="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity z-10 bg-white/80 dark:bg-gray-800/80 p-1.5 rounded-full" :class="{ 'text-white/80 hover:text-red-400 bg-black/30': imageUrl }">
+        <button @click.prevent="store.deleteItem(bookmark.id)" class="text-gray-500 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 opacity-70 group-hover:opacity-100 transition-opacity z-10 bg-white/95 dark:bg-gray-800/95 p-1.5 rounded-full shadow-sm" :class="{ 'text-white hover:text-red-400 bg-black/50 border border-white/20': imageUrl }">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
         </button>
       </div>

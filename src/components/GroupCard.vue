@@ -3,6 +3,7 @@ import { ref, watch, onMounted, onUnmounted, computed } from 'vue'
 import draggable from 'vuedraggable'
 import { useBookmarksStore, type Item } from '../stores/bookmarks'
 import { getMedia } from '../lib/storage'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
   group: { id: string; title: string; childrenIds: string[]; coverImageId?: string }
@@ -13,8 +14,32 @@ const emit = defineEmits<{
 }>()
 
 const store = useBookmarksStore()
+const { t, locale } = useI18n()
 const imageUrl = ref<string | null>(null)
 const isDragOver = ref(false)
+
+// Manual pluralization for Extension compatibility (avoiding eval/new Function)
+const bookmarksCountText = computed(() => {
+  const count = (props.group.childrenIds || []).length
+  
+  if (locale.value === 'ru') {
+    const teen = count % 100 > 10 && count % 100 < 20
+    const lastDigit = count % 10
+    
+    if (!teen && lastDigit === 1) {
+      return `${count} ${t('board.bookmarksCount.one')}`
+    }
+    if (!teen && lastDigit >= 2 && lastDigit <= 4) {
+      return `${count} ${t('board.bookmarksCount.few')}`
+    }
+    return `${count} ${t('board.bookmarksCount.many')}`
+  } else {
+    // English
+    if (count === 0) return t('board.bookmarksCount.zero')
+    if (count === 1) return `1 ${t('board.bookmarksCount.one')}`
+    return `${count} ${t('board.bookmarksCount.other')}`
+  }
+})
 
 // We create a proxy array for the draggable to use as v-model
 const dropZoneList = computed({
@@ -81,18 +106,18 @@ onUnmounted(() => {
       </template>
     </draggable>
 
-    <div class="absolute top-4 right-4 flex gap-2 z-40 opacity-0 group-hover:opacity-100 transition-opacity">
-      <button @click.stop="$emit('edit', group.id)" class="p-1.5 rounded-full text-white/50 hover:text-violet-400 bg-black/30">
+    <div class="absolute top-4 right-4 flex gap-2 z-40 opacity-70 group-hover:opacity-100 transition-opacity">
+      <button @click.stop="$emit('edit', group.id)" class="p-1.5 rounded-full text-gray-700 dark:text-gray-200 hover:text-violet-500 bg-white/90 dark:bg-gray-800/90 shadow-sm" :class="{ 'text-white hover:text-violet-400 bg-black/50 border border-white/20': imageUrl }">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
       </button>
-      <button @click.stop="store.deleteItem(group.id)" class="p-1.5 rounded-full text-white/50 hover:text-red-400 bg-black/30">
+      <button @click.stop="store.deleteItem(group.id)" class="p-1.5 rounded-full text-gray-700 dark:text-gray-200 hover:text-red-500 bg-white/90 dark:bg-gray-800/90 shadow-sm" :class="{ 'text-white hover:text-red-400 bg-black/50 border border-white/20': imageUrl }">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
       </button>
     </div>
 
     <div class="relative z-20 mt-auto pointer-events-none">
       <h3 class="text-lg font-bold text-white">{{ group.title }}</h3>
-      <p class="text-sm text-gray-200">{{ $t('board.bookmarksCount', { count: group.childrenIds.length }) }}</p>
+      <p class="text-sm text-gray-200">{{ bookmarksCountText }}</p>
     </div>
   </div>
 </template>

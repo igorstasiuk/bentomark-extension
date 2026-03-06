@@ -166,7 +166,7 @@ const checkMove = (evt: any) => {
       </template>
       <div v-if="displayItems.length === 0" class="col-span-full py-12 text-center text-gray-500 dark:text-gray-400">
         <span v-if="!store.searchQuery">{{ $t('board.noResults') }}</span>
-        <span v-else>{{ $t('board.noResultsFor', { query: store.searchQuery }) }}</span>
+        <span v-else>{{ $t('board.noResultsFor') }}: "{{ store.searchQuery }}"</span>
       </div>
     </div>
 

@@ -15,7 +15,7 @@ export default {
   },
   onboarding: {
     welcome: 'Добро пожаловать в BentoMark',
-    description: 'Организуйте свои закладки визуально. Перетаскивайте элементы, создавайте папки и настраивайте фон.',
+    description: 'Организуйте свои закладки визуально. Настраивайте фон по вкусу.',
     dragDrop: 'Перетаскивание',
     dragDropDesc: 'Свободно сортируйте макет.',
     quickSearch: 'Быстрый поиск',
@@ -31,7 +31,7 @@ export default {
     system: 'Системная',
     solid: 'Сплошной',
     liquidGlass: 'Стекло',
-    columns: 'Колонки: {count}',
+    columns: 'Колонки',
     bgImage: 'Фоновое изображение',
     clearBg: 'Очистить фон',
     dataManagement: 'Управление данными',
@@ -49,9 +49,13 @@ export default {
     searchPlaceholder: 'Поиск закладок и папок...',
     dropToMain: 'Перетащите сюда',
     noResults: 'Ничего не найдено',
-    noResultsFor: 'Ничего не найдено по запросу "{query}"',
+    noResultsFor: 'Ничего не найдено',
     emptyGroup: 'В этой папке пусто.',
     emptyBoard: 'Ваша доска пуста. Нажмите +, чтобы добавить.',
-    bookmarksCount: '{count} закладок'
+    bookmarksCount: {
+      one: 'закладка',
+      few: 'закладки',
+      many: 'закладок'
+    }
   }
 }

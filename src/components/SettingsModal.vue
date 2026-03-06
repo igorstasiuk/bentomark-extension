@@ -125,7 +125,7 @@ const importFromChrome = () => {
             </select>
           </div>
           <div class="flex-1">
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ $t('settings.columns', { count: store.settings.columns }) }}</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ $t('settings.columns') }}: {{ store.settings.columns }}</label>
             <input type="range" v-model.number="store.settings.columns" min="2" max="8" class="w-full mt-2" />
           </div>
         </div>
