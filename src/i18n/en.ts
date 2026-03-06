@@ -43,15 +43,15 @@ export default {
     importInvalid: 'Invalid backup file format.',
     importError: 'Error parsing JSON file.',
     fetchSuccess: 'Bookmarks imported successfully!',
-    fetchError: 'Chrome Bookmarks API is not available. Ensure you are running as an extension with "bookmarks" permission.'
+    fetchError: 'Chrome Bookmarks API is not available.'
   },
   board: {
     searchPlaceholder: 'Search bookmarks and groups...',
-    dropToMain: 'Drop bookmark here to move to main screen',
+    dropToMain: 'Drop to main screen',
     noResults: 'No results found',
     noResultsFor: 'No results found for "{query}"',
-    emptyGroup: 'This group is empty. Drag bookmarks here or click + to add.',
-    emptyBoard: 'Your board is empty. Click the + button to add bookmarks or groups.',
-    bookmarksCount: '{count} bookmarks | {count} bookmark | {count} bookmarks'
+    emptyGroup: 'This group is empty.',
+    emptyBoard: 'Your board is empty. Click + to add bookmarks.',
+    bookmarksCount: '{count} bookmarks'
   }
 }
