@@ -44,7 +44,7 @@ const toggleFilter = (type: 'group' | 'bookmark') => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <input v-model="store.searchQuery" class="h-full w-full outline-none text-sm text-gray-700 dark:text-gray-200 pr-2 bg-transparent" type="text" id="search" placeholder="Search bookmarks and groups..." />
+        <input v-model="store.searchQuery" class="h-full w-full outline-none text-sm text-gray-700 dark:text-gray-200 pr-2 bg-transparent" type="text" id="search" :placeholder="$t('board.searchPlaceholder')" />
       </div>
     </div>
 

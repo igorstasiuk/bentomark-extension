@@ -146,7 +146,7 @@ const checkMove = (evt: any) => {
             @click="closeGroup" 
             class="p-3 rounded-xl shadow-sm glass:backdrop-blur-md glass:border transition-all"
             :class="isBackHovered ? 'bg-violet-500 text-white glass:bg-violet-500 glass:border-violet-400 scale-110' : 'bg-white/50 dark:bg-black/50 glass:bg-white/70 glass:dark:bg-black/40 glass:border-white/30 glass:dark:border-white/10 hover:bg-white dark:hover:bg-black glass:hover:bg-white/90 glass:dark:hover:bg-black/50 text-gray-700 dark:text-gray-200'"
-            title="Drop bookmark here to move to main screen"
+            :title="$t('board.dropToMain')"
           >
             <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
           </button>
@@ -165,7 +165,8 @@ const checkMove = (evt: any) => {
         <BookmarkCard v-else :bookmark="element" @edit="handleEdit" />
       </template>
       <div v-if="displayItems.length === 0" class="col-span-full py-12 text-center text-gray-500 dark:text-gray-400">
-        No results found{{ store.searchQuery ? ` for "${store.searchQuery}"` : '' }}
+        <span v-if="!store.searchQuery">{{ $t('board.noResults') }}</span>
+        <span v-else>{{ $t('board.noResultsFor', { query: store.searchQuery }) }}</span>
       </div>
     </div>
 
@@ -193,7 +194,7 @@ const checkMove = (evt: any) => {
     </draggable>
     
     <div v-if="!isFiltering && displayItems.length === 0" class="flex-1 flex items-center justify-center py-12 text-center text-gray-500 dark:text-gray-400">
-      {{ store.currentGroupId ? 'This group is empty. Drag bookmarks here or click + to add.' : 'Your board is empty. Click the + button to add bookmarks or groups.' }}
+      {{ store.currentGroupId ? $t('board.emptyGroup') : $t('board.emptyBoard') }}
     </div>
   </main>
 </template>

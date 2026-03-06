@@ -92,7 +92,7 @@ onUnmounted(() => {
 
     <div class="relative z-20 mt-auto pointer-events-none">
       <h3 class="text-lg font-bold text-white">{{ group.title }}</h3>
-      <p class="text-sm text-gray-200">{{ group.childrenIds.length }} bookmarks</p>
+      <p class="text-sm text-gray-200">{{ $t('board.bookmarksCount', { count: group.childrenIds.length }) }}</p>
     </div>
   </div>
 </template>

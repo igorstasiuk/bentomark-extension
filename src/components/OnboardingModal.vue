@@ -20,24 +20,24 @@ const dismiss = () => {
           <img src="/bentomark.svg" alt="BentoMark Logo" class="w-full h-full drop-shadow-xl" />
         </div>
         
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Welcome to BentoMark</h2>
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">{{ $t('onboarding.welcome') }}</h2>
         <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-          Organize your bookmarks visually. Drag and drop to reorder, nest links into groups, and customize the background to make it your own.
+          {{ $t('onboarding.description') }}
         </p>
 
         <div class="grid grid-cols-2 gap-4 text-left mb-8">
           <div class="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
-            <div class="font-bold text-gray-800 dark:text-gray-100 mb-1">Drag & Drop</div>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Sort your layout freely.</div>
+            <div class="font-bold text-gray-800 dark:text-gray-100 mb-1">{{ $t('onboarding.dragDrop') }}</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $t('onboarding.dragDropDesc') }}</div>
           </div>
           <div class="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
-            <div class="font-bold text-gray-800 dark:text-gray-100 mb-1">Quick Search</div>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Find links instantly.</div>
+            <div class="font-bold text-gray-800 dark:text-gray-100 mb-1">{{ $t('onboarding.quickSearch') }}</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $t('onboarding.quickSearchDesc') }}</div>
           </div>
         </div>
 
         <button @click="dismiss" class="w-full py-3 rounded-xl font-bold text-lg bg-violet-500 hover:bg-violet-600 text-white shadow-lg shadow-violet-500/30 transition-all transform hover:scale-[1.02]">
-          Let's Go!
+          {{ $t('onboarding.letsGo') }}
         </button>
       </div>
     </div>

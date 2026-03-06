@@ -1,18 +1,26 @@
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue';
+import i18n from '../i18n';
 
 export interface SettingsState {
   theme: 'light' | 'dark' | 'system';
   designStyle: 'solid' | 'glass';
   columns: number;
   onboarded: boolean;
+  language: 'en' | 'ru';
 }
 export const useSettingsStore = defineStore('settings', () => {
+  const getDefaultLanguage = (): 'en' | 'ru' => {
+    const browserLang = navigator.language.split('-')[0];
+    return browserLang === 'ru' ? 'ru' : 'en';
+  };
+
   const settings = ref<SettingsState>({
     theme: 'system',
     designStyle: 'solid',
     columns: 5,
-    onboarded: false
+    onboarded: false,
+    language: getDefaultLanguage()
   });
 
   const isLoaded = ref(false);
@@ -33,6 +41,9 @@ export const useSettingsStore = defineStore('settings', () => {
     } else {
       document.documentElement.classList.remove('glass-theme');
     }
+    
+    // Apply language
+    (i18n.global.locale as any).value = settings.value.language;
   };
 
   // Load from chrome.storage.sync

@@ -116,24 +116,24 @@ const close = () => {
 <template>
   <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" @click.self="close">
     <div class="bg-white dark:bg-gray-800 glass:bg-white/70 glass:dark:bg-black/40 glass:backdrop-blur-2xl glass:border-white/50 glass:dark:border-white/10 glass:shadow-2xl p-6 rounded-2xl shadow-2xl w-full max-w-md border border-gray-200 dark:border-gray-700 transition-all max-h-[90vh] overflow-y-auto">
-      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">{{ editItem ? 'Edit' : 'Add New' }}</h2>
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">{{ editItem ? $t('common.edit') : $t('common.addNew') }}</h2>
       
       <div v-if="!editItem" class="flex gap-4 mb-6">
         <button 
           class="flex-1 py-2 rounded-lg font-medium transition-colors"
           :class="type === 'bookmark' ? 'bg-violet-500 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'"
           @click="type = 'bookmark'"
-        >Bookmark</button>
+        >{{ $t('common.bookmark') }}</button>
         <button 
           class="flex-1 py-2 rounded-lg font-medium transition-colors"
           :class="type === 'group' ? 'bg-violet-500 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'"
           @click="type = 'group'"
-        >Group</button>
+        >{{ $t('common.group') }}</button>
       </div>
 
       <form @submit.prevent="handleSubmit" class="space-y-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ $t('common.title') }}</label>
           <input 
             v-model="title" 
             type="text" 
@@ -144,7 +144,7 @@ const close = () => {
         </div>
         
         <div v-if="type === 'bookmark'">
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">URL</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ $t('common.url') }}</label>
           <input 
             v-model="url" 
             type="url" 
@@ -155,12 +155,12 @@ const close = () => {
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Parent Folder</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ $t('common.parentFolder') }}</label>
           <select 
             v-model="selectedGroupId"
             class="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-violet-500 outline-none"
           >
-            <option value="">(None - Main Screen)</option>
+            <option value="">{{ $t('common.noneMainScreen') }}</option>
             <option v-for="group in availableGroups" :key="group.id" :value="group.id">
               {{ group.title }}
             </option>
@@ -168,13 +168,13 @@ const close = () => {
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Cover Image (Optional)</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ $t('common.coverImage') }}</label>
           <input type="file" accept="image/*" @change="handleFileUpload" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 w-full" />
         </div>
 
         <div class="flex justify-end gap-3 mt-8">
-          <button type="button" @click="close" class="px-5 py-2 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Cancel</button>
-          <button type="submit" class="px-5 py-2 rounded-xl font-medium bg-violet-500 hover:bg-violet-600 text-white shadow-lg shadow-violet-500/30 transition-all">Save</button>
+          <button type="button" @click="close" class="px-5 py-2 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">{{ $t('common.cancel') }}</button>
+          <button type="submit" class="px-5 py-2 rounded-xl font-medium bg-violet-500 hover:bg-violet-600 text-white shadow-lg shadow-violet-500/30 transition-all">{{ $t('common.save') }}</button>
         </div>
       </form>
     </div>
